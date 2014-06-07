@@ -15,6 +15,7 @@ import com.apb.beacon.data.PBDatabase;
 import com.apb.beacon.model.HelpPage;
 import com.apb.beacon.model.Page;
 import com.apb.beacon.model.ServerResponse;
+import com.apb.beacon.trigger.HardwareTriggerService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -114,7 +115,7 @@ public class HomeActivity extends Activity {
             Log.e(">>>>>>", "first run FALSE, running CalculatorActivity");
             Intent i = new Intent(HomeActivity.this, CalculatorActivity.class);
             // Make sure the HardwareTriggerService is started
-//    		startService(new Intent(this, HardwareTriggerService.class));
+    		startService(new Intent(this, HardwareTriggerService.class));
             startActivity(i);
         }
     }
@@ -137,9 +138,9 @@ public class HomeActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = ProgressDialog.show(HomeActivity.this, "Panic Button", "Installing...", true, false);
+            pDialog = ProgressDialog.show(HomeActivity.this, "Application", "Installing...", true, false);
         }
-
+        
         @Override
         protected Boolean doInBackground(Void... params) {
 	        try {
@@ -167,6 +168,16 @@ public class HomeActivity extends Activity {
 
 	        try {
 	            JSONObject jsonObj = new JSONObject(loadJSONFromAsset("mobile_ph.json"));
+	            JSONObject mobileObj = jsonObj.getJSONObject("mobile");
+
+	            JSONArray dataArray = mobileObj.getJSONArray("data");
+	            insertMobileDataToLocalDB(dataArray);
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
+
+	        try {
+	            JSONObject jsonObj = new JSONObject(loadJSONFromAsset("mobile_pt.json"));
 	            JSONObject mobileObj = jsonObj.getJSONObject("mobile");
 
 	            JSONArray dataArray = mobileObj.getJSONArray("data");
@@ -227,6 +238,16 @@ public class HomeActivity extends Activity {
 	        } catch (JSONException e) {
 	            e.printStackTrace();
 	        }
+
+	        try {
+	            JSONObject jsonObj = new JSONObject(loadJSONFromAsset("help_pt.json"));
+	            JSONObject mobileObj = jsonObj.getJSONObject("help");
+
+	            JSONArray dataArray = mobileObj.getJSONArray("data");
+	            insertMobileDataToLocalDB(dataArray);
+	        } catch (JSONException e) {
+	            e.printStackTrace();
+	        }
 	        return true;
         }
 
@@ -257,7 +278,7 @@ public class HomeActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = ProgressDialog.show(HomeActivity.this, "Panic Button", "Starting...", true, false);
+            pDialog = ProgressDialog.show(HomeActivity.this, "Application", "Starting...", true, false);
         }
 
         @Override
@@ -306,7 +327,7 @@ public class HomeActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             try {
-				pDialog = ProgressDialog.show(HomeActivity.this, "Panic Button", "Downloading updates...", true, false);
+				pDialog = ProgressDialog.show(HomeActivity.this, "Application", "Downloading updates...", true, false);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -371,7 +392,7 @@ public class HomeActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             try {
-				pDialog = ProgressDialog.show(HomeActivity.this, "Panic Button", "Downloading help pages...", true, false);
+				pDialog = ProgressDialog.show(HomeActivity.this, "Application", "Downloading help pages...", true, false);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
