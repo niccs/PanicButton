@@ -1,8 +1,8 @@
 package org.iilab.pb;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
-
 
 import org.iilab.pb.common.ApplicationSettings;
 import org.junit.Before;
@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.shadows.ShadowPreferenceManager;
 
 import static junit.framework.Assert.assertNull;
 import static org.iilab.pb.common.ApplicationSettings.isFirstRun;
@@ -27,7 +26,7 @@ public class ApplicationSettingsTest {
     @Before
     public void setUp() {
         context = Robolectric.application;
-        sharedPreferences = ShadowPreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences = context.getSharedPreferences("panic_button_pref", Context.MODE_PRIVATE);
     }
 
     @Test
