@@ -3,7 +3,6 @@ package org.iilab.pb.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
-import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 
@@ -99,7 +98,8 @@ public class ApplicationSettings {
     }
 
     private static SharedPreferences sharedPreferences(Context context) {
-    	return PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences pref = context.getSharedPreferences("panic_button_pref", Context.MODE_PRIVATE);
+    	return pref;
     }
 
     private static void saveBoolean(Context context, String key, boolean value) {
