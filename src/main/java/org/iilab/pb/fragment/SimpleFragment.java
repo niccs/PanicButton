@@ -19,9 +19,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
-import java.util.HashMap;
-
 import org.iilab.pb.MainActivity;
 import org.iilab.pb.R;
 import org.iilab.pb.WizardActivity;
@@ -37,6 +34,8 @@ import org.iilab.pb.common.NestedListView;
 import org.iilab.pb.data.PBDatabase;
 import org.iilab.pb.model.Page;
 import org.iilab.pb.model.PageItem;
+
+import java.util.HashMap;
 
 
 /**
@@ -87,6 +86,7 @@ public class SimpleFragment extends Fragment {
         /*
         special case for page id = "home-alerting"
         This button will be visible only when we are in home-alerting page.
+        *** only for home-alerting, bAction is VISIBLE in SimpleFragment
          */
         bAction = (Button) view.findViewById(R.id.b_action);
         bAction.setOnClickListener(new View.OnClickListener() {
@@ -264,12 +264,16 @@ public class SimpleFragment extends Fragment {
     }
 
     private void toggleAlert() {
+        Log.e(">?>>>>", "toggling alert");
         PanicAlert panicAlert = getPanicAlert();
-        if(panicAlert.isActive()) {
-            panicAlert.deActivate();
-        } else{
+        if(ApplicationSettings.isAlertActive(activity)){
             panicAlert.activate();
         }
+//        if(panicAlert.isActive()) {
+//            panicAlert.deActivate();
+//        } else{
+//
+//        }
 //        activity.finish();
     }
 

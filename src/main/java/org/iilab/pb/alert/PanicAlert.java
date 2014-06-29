@@ -43,7 +43,7 @@ public class PanicAlert {
                 ) {
             return;
         }
-        ApplicationSettings.setAlertActive(context, true);
+//        ApplicationSettings.setAlertActive(context, true);
         getExecutorService().execute(
                 new Runnable() {
                     @Override
