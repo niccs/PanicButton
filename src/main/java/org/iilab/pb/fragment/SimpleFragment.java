@@ -84,22 +84,24 @@ public class SimpleFragment extends Fragment {
         tvStatus = (TextView) view.findViewById(R.id.fragment_status);
 
         /*
-        special case for page id = "home-alerting"
-        This button will be visible only when we are in home-alerting page.
-        *** only for home-alerting, bAction is VISIBLE in SimpleFragment
+        *** special case for page id = "home-alerting"
+        *** This button will be visible only when we are in home-alerting page.
+        *** only for home-alerting, bAction is VISIBLE in SimpleFragment.
+        *** the button text -> "Stop Alerting" which will redirect app to "home-ready" page.
+        *** so this button only deactivates the alert.
          */
         bAction = (Button) view.findViewById(R.id.b_action);
         bAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toggleAlert();
+                deactivateAlert();
                 String pageId = currentPage.getAction().get(0).getLink();
 
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
                 // This part needs to be changed.
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY || pageId.equalsIgnoreCase("home-not-configured")){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY || pageId.equalsIgnoreCase("home-not-configured")){
                     i = new Intent(activity, WizardActivity.class);
                     i = AppUtil.clearBackStack(i);
                 } else{
@@ -124,7 +126,7 @@ public class SimpleFragment extends Fragment {
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
                     i = new Intent(activity, MainActivity.class);
@@ -156,7 +158,7 @@ public class SimpleFragment extends Fragment {
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
                     i = new Intent(activity, MainActivity.class);
@@ -263,17 +265,12 @@ public class SimpleFragment extends Fragment {
         }
     }
 
-    private void toggleAlert() {
-        Log.e(">?>>>>", "toggling alert");
+    private void deactivateAlert() {
+        Log.e(">?>>>>", "deactivating alert");
         PanicAlert panicAlert = getPanicAlert();
         if(ApplicationSettings.isAlertActive(activity)){
-            panicAlert.activate();
+            panicAlert.deActivate();
         }
-//        if(panicAlert.isActive()) {
-//            panicAlert.deActivate();
-//        } else{
-//
-//        }
 //        activity.finish();
     }
 
