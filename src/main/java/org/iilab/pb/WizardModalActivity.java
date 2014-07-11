@@ -1,16 +1,6 @@
 package org.iilab.pb;
 
-import org.iilab.pb.adapter.PageCheckListAdapter;
-import org.iilab.pb.common.AppConstants;
-import org.iilab.pb.common.AppUtil;
-import org.iilab.pb.common.ApplicationSettings;
-import org.iilab.pb.common.MyTagHandler;
-import org.iilab.pb.data.PBDatabase;
-import org.iilab.pb.model.Page;
-
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -20,6 +10,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.iilab.pb.adapter.PageCheckListAdapter;
+import org.iilab.pb.common.AppConstants;
+import org.iilab.pb.common.AppUtil;
+import org.iilab.pb.common.ApplicationSettings;
+import org.iilab.pb.common.MyTagHandler;
+import org.iilab.pb.data.PBDatabase;
+import org.iilab.pb.model.Page;
 
 
 
@@ -110,7 +108,7 @@ public class WizardModalActivity extends BaseFragmentActivity {
 
                     if (pageId.equals("close")) {
 /*
-                        if (parentActivity == AppConstants.FROM_WIZARD_ACTIVITY) {
+                        if (parentActivity == AppConstants.WIZARD_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(WizardModalActivity.this, false);
 
                             getPackageManager().setComponentEnabledSetting(
@@ -131,7 +129,7 @@ public class WizardModalActivity extends BaseFragmentActivity {
 
                         finish();
                     } else {
-                        if (parentActivity == AppConstants.FROM_WIZARD_ACTIVITY) {
+                        if (parentActivity == AppConstants.WIZARD_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(WizardModalActivity.this, true);
                             AppConstants.IS_BACK_BUTTON_PRESSED = true;
                         }
@@ -153,7 +151,7 @@ public class WizardModalActivity extends BaseFragmentActivity {
 
                     if (pageId.equals("close")) {
 
-/*                        if (parentActivity == AppConstants.FROM_WIZARD_ACTIVITY) {
+/*                        if (parentActivity == AppConstants.WIZARD_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(WizardModalActivity.this, false);
 
                             getPackageManager().setComponentEnabledSetting(
@@ -175,7 +173,7 @@ public class WizardModalActivity extends BaseFragmentActivity {
 
                         finish();
                     } else {
-                        if (parentActivity == AppConstants.FROM_WIZARD_ACTIVITY) {
+                        if (parentActivity == AppConstants.WIZARD_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(WizardModalActivity.this, true);
                             AppConstants.IS_BACK_BUTTON_PRESSED = true;
                         }
@@ -198,7 +196,7 @@ public class WizardModalActivity extends BaseFragmentActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (parentActivity == AppConstants.FROM_WIZARD_ACTIVITY) {
+        if (parentActivity == AppConstants.WIZARD_ACTIVITY) {
 //            ApplicationSettings.setFirstRun(WizardModalActivity.this, true);
             AppConstants.IS_BACK_BUTTON_PRESSED = true;
         }

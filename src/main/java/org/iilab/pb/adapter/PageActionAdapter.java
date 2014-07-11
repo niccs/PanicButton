@@ -92,7 +92,7 @@ public class PageActionAdapter extends ArrayAdapter<PageAction> {
                 } else {
 
                     Intent i = new Intent(mContext, WizardActivity.class);
-                    if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                    if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                         i = new Intent(mContext, WizardActivity.class);
                     } else{
 //                    	AppUtil.showToast("Real alert deactivated.", 1000, mContext);
@@ -141,7 +141,7 @@ public class PageActionAdapter extends ArrayAdapter<PageAction> {
                 } else {
 
                     Intent i;
-                    if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                    if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                         i = new Intent(mContext, WizardActivity.class);
                     } else{
                         i = new Intent(mContext, MainActivity.class);

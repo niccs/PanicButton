@@ -39,8 +39,8 @@ public class AppConstants {
 //    public static boolean IS_ACTION_ITEM_PRESSED = false;
     public static boolean PAGE_FROM_NOT_IMPLEMENTED = false;
     
-    public static final int FROM_WIZARD_ACTIVITY = 1;
-    public static final int FROM_MAIN_ACTIVITY = 2;
+    public static final int WIZARD_ACTIVITY = 1;
+    public static final int MAIN_ACTIVITY = 2;
 
     public static final double IMAGE_SCALABILITY_FACTOR = 0.5;
 

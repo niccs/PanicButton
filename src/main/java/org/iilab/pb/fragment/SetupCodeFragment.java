@@ -1,6 +1,5 @@
 package org.iilab.pb.fragment;
 
-import org.iilab.pb.LoginActivity;
 import org.iilab.pb.MainActivity;
 import org.iilab.pb.R;
 import org.iilab.pb.WizardActivity;
@@ -84,7 +83,7 @@ public class SetupCodeFragment extends Fragment {
                     int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                     Intent i;
 
-                    if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                    if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                         i = new Intent(activity, WizardActivity.class);
                     } else{
 //                    	AppUtil.showToast("New pincode saved.", 1000, activity);
@@ -98,7 +97,7 @@ public class SetupCodeFragment extends Fragment {
                     i.putExtra("page_id", pageId);
                     startActivity(i);
 
-                    if(parentActivity == AppConstants.FROM_MAIN_ACTIVITY){
+                    if(parentActivity == AppConstants.MAIN_ACTIVITY){
                         activity.finish();
                     }
                 }
@@ -121,7 +120,7 @@ public class SetupCodeFragment extends Fragment {
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
 //                	AppUtil.showToast("New pincode saved.", 1000, activity);
@@ -135,7 +134,7 @@ public class SetupCodeFragment extends Fragment {
                 i.putExtra("page_id", pageId);
                 startActivity(i);
 
-                if(parentActivity == AppConstants.FROM_MAIN_ACTIVITY){
+                if(parentActivity == AppConstants.MAIN_ACTIVITY){
                     activity.finish();
                 }
             }
@@ -157,7 +156,7 @@ public class SetupCodeFragment extends Fragment {
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
                     i = new Intent(activity, MainActivity.class);

@@ -104,32 +104,32 @@ public class MainActivity extends BaseFragmentActivity {
 
             if (currentPage.getType().equals("simple")) {
                 tvToastMessage.setVisibility(View.INVISIBLE);
-                fragment = new SimpleFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                fragment = new SimpleFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
             }else if (currentPage.getType().equals("warning")) {
                     tvToastMessage.setVisibility(View.INVISIBLE);
-                    fragment = new WarningFragment().newInstance(pageId,AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new WarningFragment().newInstance(pageId,AppConstants.MAIN_ACTIVITY);
                 
             } else if (currentPage.getType().equals("modal")){
                 tvToastMessage.setVisibility(View.INVISIBLE);
                 Intent i = new Intent(MainActivity.this, MainModalActivity.class);
                 i.putExtra("page_id", pageId);
-//                i.putExtra("parent_activity", AppConstants.FROM_MAIN_ACTIVITY);
+//                i.putExtra("parent_activity", AppConstants.MAIN_ACTIVITY);
                 startActivity(i);
                 finish();
                 return;
             } else {
                 if (currentPage.getComponent().equals("contacts"))
-                    fragment = new SetupContactsFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new SetupContactsFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
                 else if (currentPage.getComponent().equals("message"))
-                    fragment = new SetupMessageFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new SetupMessageFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
                 else if (currentPage.getComponent().equals("code"))
-                    fragment = new SetupCodeFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new SetupCodeFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
                 else if (currentPage.getComponent().equals("alert"))
-                    fragment = new MainSetupAlertFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new MainSetupAlertFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
                 else if (currentPage.getComponent().equals("language"))
-                    fragment = new LanguageSettingsFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new LanguageSettingsFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
                 else
-                    fragment = new SimpleFragment().newInstance(pageId, AppConstants.FROM_MAIN_ACTIVITY);
+                    fragment = new SimpleFragment().newInstance(pageId, AppConstants.MAIN_ACTIVITY);
             }
             fragmentTransaction.add(R.id.fragment_container, fragment);
             fragmentTransaction.commit();

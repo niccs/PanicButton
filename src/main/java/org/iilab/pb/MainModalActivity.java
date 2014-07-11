@@ -119,7 +119,7 @@ public class MainModalActivity extends BaseFragmentActivity {
 
                         finish();
                     } else {
-//                        if (parentActivity == AppConstants.FROM_MAIN_ACTIVITY) {
+//                        if (parentActivity == AppConstants.MAIN_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(MainModalActivity.this, true);
 //                            AppConstants.IS_BACK_BUTTON_PRESSED = true;
 //                        }
@@ -142,7 +142,7 @@ public class MainModalActivity extends BaseFragmentActivity {
 
                     if (pageId.equals("close")) {
 
-//                        if (parentActivity == AppConstants.FROM_MAIN_ACTIVITY) {
+//                        if (parentActivity == AppConstants.MAIN_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(MainModalActivity.this, false);
 //
 //                            getPackageManager().setComponentEnabledSetting(
@@ -163,7 +163,7 @@ public class MainModalActivity extends BaseFragmentActivity {
 
                         finish();
                     } else {
-//                        if (parentActivity == AppConstants.FROM_MAIN_ACTIVITY) {
+//                        if (parentActivity == AppConstants.MAIN_ACTIVITY) {
 //                            ApplicationSettings.setFirstRun(MainModalActivity.this, true);
 //                            AppConstants.IS_BACK_BUTTON_PRESSED = true;
 //                        }
@@ -187,7 +187,7 @@ public class MainModalActivity extends BaseFragmentActivity {
     public void onBackPressed() {
         super.onBackPressed();
         AppConstants.IS_BACK_BUTTON_PRESSED = true;
-//        if (parentActivity == AppConstants.FROM_MAIN_ACTIVITY) {
+//        if (parentActivity == AppConstants.MAIN_ACTIVITY) {
 //            Log.e("<<<<<<", "Setting first run = true");
 //            ApplicationSettings.setFirstRun(MainModalActivity.this, true);
 //            AppConstants.IS_BACK_BUTTON_PRESSED = true;

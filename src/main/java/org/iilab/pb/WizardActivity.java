@@ -110,19 +110,19 @@ public class WizardActivity extends BaseFragmentActivity {
 
             if (currentPage.getType().equals("simple")) {
                 tvToastMessage.setVisibility(View.INVISIBLE);
-                fragment = new SimpleFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                fragment = new SimpleFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
             } else if (currentPage.getType().equals("warning")) {
                 tvToastMessage.setVisibility(View.INVISIBLE);
-                fragment = new WarningFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                fragment = new WarningFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
             } else {          // type = interactive
                 if (currentPage.getComponent().equals("contacts"))
-                    fragment = new SetupContactsFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                    fragment = new SetupContactsFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
                 else if (currentPage.getComponent().equals("message"))
-                    fragment = new SetupMessageFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                    fragment = new SetupMessageFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
                 else if (currentPage.getComponent().equals("code"))
-                    fragment = new SetupCodeFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                    fragment = new SetupCodeFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
                 else if (currentPage.getComponent().equals("language"))
-                    fragment = new LanguageSettingsFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                    fragment = new LanguageSettingsFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
                 else if (currentPage.getComponent().equals("alarm-test-hardware")) {
                     tvToastMessage.setVisibility(View.VISIBLE);
                     if (currentPage.getIntroduction() != null) {
@@ -156,7 +156,7 @@ public class WizardActivity extends BaseFragmentActivity {
                     }
                     fragment = new WizardTestDisguiseCodeFragment().newInstance(pageId);
                 } else
-                    fragment = new SimpleFragment().newInstance(pageId, AppConstants.FROM_WIZARD_ACTIVITY);
+                    fragment = new SimpleFragment().newInstance(pageId, AppConstants.WIZARD_ACTIVITY);
             }
             fragmentTransaction.add(R.id.fragment_container, fragment);
             fragmentTransaction.commit();

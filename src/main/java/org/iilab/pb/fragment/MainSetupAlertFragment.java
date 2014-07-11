@@ -106,7 +106,7 @@ public class MainSetupAlertFragment extends Fragment implements OnClickListener{
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
 //                	AppUtil.showToast("New frequency saved.", 1000, activity);
@@ -122,7 +122,7 @@ public class MainSetupAlertFragment extends Fragment implements OnClickListener{
                 i.putExtra("page_id", pageId);
                 startActivity(i);
 
-                if(parentActivity == AppConstants.FROM_MAIN_ACTIVITY){
+                if(parentActivity == AppConstants.MAIN_ACTIVITY){
                     activity.finish();
                 }
             }
@@ -144,7 +144,7 @@ public class MainSetupAlertFragment extends Fragment implements OnClickListener{
                 int parentActivity = getArguments().getInt(PARENT_ACTIVITY);
                 Intent i;
 
-                if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+                if(parentActivity == AppConstants.WIZARD_ACTIVITY){
                     i = new Intent(activity, WizardActivity.class);
                 } else{
                     i = new Intent(activity, MainActivity.class);

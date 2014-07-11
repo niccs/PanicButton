@@ -123,7 +123,7 @@ public class PageLanguageSettingsAdapter extends ArrayAdapter<PageAction> {
 
         Log.e(">>>>>>>", "restarting app with pageId = " + pageId);
 
-        if(parentActivity == AppConstants.FROM_WIZARD_ACTIVITY){
+        if(parentActivity == AppConstants.WIZARD_ACTIVITY){
             Intent i = new Intent(mContext, WizardActivity.class);
             i.putExtra("page_id", pageId);
             mContext.startActivity(i);
