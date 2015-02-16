@@ -7,9 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.PowerManager;
-import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.DisplayMetrics;
@@ -18,10 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
-import java.util.HashMap;
-
 import org.iilab.pb.R;
 import org.iilab.pb.WizardActivity;
 import org.iilab.pb.common.AppConstants;
@@ -31,6 +25,8 @@ import org.iilab.pb.common.MyTagHandler;
 import org.iilab.pb.data.PBDatabase;
 import org.iilab.pb.model.Page;
 import org.iilab.pb.trigger.HardwareTriggerReceiver;
+
+import java.util.HashMap;
 
 /**
  * Created by aoe on 1/9/14.
