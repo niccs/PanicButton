@@ -24,7 +24,7 @@ public class HomeActivity extends Activity {
     ProgressDialog pDialog;
 
     String pageId;
-    String selectedLang;
+    String selectedLang="";
 //    String mobileDataUrl;
 //    String helpDataUrl;
 
